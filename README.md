@@ -84,4 +84,4 @@ npm run dev
 - MIT Lisansı ile lisanslanmıştır.
 
 ---
-Daha fazla bilgi ve gereksinim için `prd.md` dosyasını inceleyebilirsiniz.
+Daha fazla bilgi ve gereksinim için `https://www.instagram.com/oguzhan__baysal/` adresinden ulaşabilirsiniz.
