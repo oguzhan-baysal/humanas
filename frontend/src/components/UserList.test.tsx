@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { UserList } from './UserList';
-import { User } from '../types/user';
 
 describe('UserList', () => {
   it('kullanıcılar doğru şekilde render edilmeli', () => {
