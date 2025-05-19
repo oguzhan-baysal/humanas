@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { User } from '@/types/user';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL + '/api';
 
 interface Prediction {
   method: string;

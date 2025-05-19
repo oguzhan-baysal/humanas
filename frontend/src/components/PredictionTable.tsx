@@ -23,7 +23,8 @@ export const PredictionTable: React.FC<PredictionTableProps> = ({ user }) => {
   useEffect(() => {
     const fetchPrediction = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/predictions/${user.id}`);
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const response = await axios.get(`${apiUrl}/api/predictions/${user.id}`);
         setPrediction(response.data);
         setLoading(false);
       } catch {
