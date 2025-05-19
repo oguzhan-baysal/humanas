@@ -2,12 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
-interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
-interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
-interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-const Card = React.forwardRef<HTMLDivElement, CardProps>(
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
@@ -18,7 +13,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
 )
 Card.displayName = "Card"
 
-const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
@@ -29,7 +24,7 @@ const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
 )
 CardHeader.displayName = "CardHeader"
 
-const CardTitle = React.forwardRef<HTMLParagraphElement, CardTitleProps>(
+const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(
   ({ className, ...props }, ref) => (
     <h3
       ref={ref}
@@ -52,7 +47,7 @@ const CardDescription = React.forwardRef<
 ))
 CardDescription.displayName = "CardDescription"
 
-const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div ref={ref} className={`p-6 pt-0 ${className}`} {...props} />
   )

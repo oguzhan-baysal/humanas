@@ -26,7 +26,7 @@ export const PredictionTable: React.FC<PredictionTableProps> = ({ user }) => {
         const response = await axios.get(`http://localhost:3001/api/predictions/${user.id}`);
         setPrediction(response.data);
         setLoading(false);
-      } catch (err) {
+      } catch {
         setError('Tahminler yüklenirken bir hata oluştu.');
         setLoading(false);
       }
@@ -84,8 +84,8 @@ export const PredictionTable: React.FC<PredictionTableProps> = ({ user }) => {
 
   // Grafik için veri hazırlama
   const chartData = Object.entries(prediction.predictions)
-    .filter(([_, pred]) => pred !== null && pred !== undefined)
-    .map(([_, pred]) => {
+    .filter(([, pred]) => pred !== null && pred !== undefined)
+    .map(([, pred]) => {
       const safePred = pred as Prediction;
       return {
         method: safePred.method,
