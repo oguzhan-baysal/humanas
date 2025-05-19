@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { User, UserPrediction } from '../models/types';
+import { User, Prediction } from '../types';
 
 export class UserService {
   private apiUrl = 'https://case-test-api.humanas.io';
@@ -25,19 +25,19 @@ export class UserService {
     }
   }
 
-  async getAllPredictions(): Promise<UserPrediction[]> {
+  async getAllPredictions(): Promise<Prediction[]> {
     try {
       const users = await this.getAllUsers();
       const predictions = await Promise.all(
         users.map(user => this.getUserPredictions(user.id))
       );
-      return predictions.flat();
+      return predictions;
     } catch (error) {
       throw new Error('Failed to fetch all predictions');
     }
   }
 
-  async getUserPredictions(userId: string): Promise<UserPrediction[]> {
+  async getUserPredictions(userId: string): Promise<Prediction> {
     try {
       const response = await axios.get(`${this.apiUrl}/users/${userId}/logins`);
       const loginData = response.data;
@@ -48,18 +48,17 @@ export class UserService {
       // Algoritma 2: Gün ve Saat Örüntüsü Analizi
       const patternAnalysisPrediction = this.calculatePatternAnalysisPrediction(loginData.logins);
 
-      return [
-        {
-          algorithm: 'average_interval',
-          nextLoginPrediction: averageIntervalPrediction,
-          confidence: 0.7
+      return {
+        userId: userId,
+        nextLoginPredictions: {
+          averageInterval: averageIntervalPrediction,
+          patternBased: patternAnalysisPrediction
         },
-        {
-          algorithm: 'pattern_analysis',
-          nextLoginPrediction: patternAnalysisPrediction,
-          confidence: 0.8
+        accuracy: {
+          averageInterval: 0.7,
+          patternBased: 0.8
         }
-      ];
+      };
     } catch (error) {
       throw new Error('Failed to fetch user predictions');
     }
