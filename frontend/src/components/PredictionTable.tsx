@@ -96,7 +96,7 @@ export const PredictionTable: React.FC<PredictionTableProps> = ({ user }) => {
 
   return (
     <>
-      <Card>
+      <Card className="w-full max-w-full">
         <CardHeader>
           <CardTitle>Tahminler - {user.name}</CardTitle>
         </CardHeader>
@@ -107,7 +107,7 @@ export const PredictionTable: React.FC<PredictionTableProps> = ({ user }) => {
 
               return (
                 <div key={key} className="space-y-2">
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
                       {getMethodIcon(pred.method)}
                       <span className="font-medium">{pred.method}</span>
@@ -130,7 +130,7 @@ export const PredictionTable: React.FC<PredictionTableProps> = ({ user }) => {
         </CardContent>
       </Card>
       {/* Grafik Kartı */}
-      <Card className="mt-6">
+      <Card className="mt-6 w-full max-w-full overflow-auto">
         <CardHeader>
           <CardTitle>Tahminler Grafiği</CardTitle>
         </CardHeader>
