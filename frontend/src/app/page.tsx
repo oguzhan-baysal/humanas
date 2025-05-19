@@ -16,10 +16,10 @@ export default function Home() {
           Kullanıcı Oturum Tahmin Sistemi
         </h1>
         <div className="flex flex-col md:grid md:grid-cols-3 md:gap-6 gap-4">
-          <div className="md:col-span-1">
+          <div className="order-1 md:order-none md:col-span-1">
             <UserList onSelectUser={setSelectedUser} />
           </div>
-          <div className="md:col-span-2 mt-4 md:mt-0">
+          <div className="order-2 md:order-none md:col-span-2 mt-4 md:mt-0">
             {selectedUser ? (
               <PredictionTable user={selectedUser} />
             ) : (
