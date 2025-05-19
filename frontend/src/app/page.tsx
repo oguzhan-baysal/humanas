@@ -20,13 +20,15 @@ export default function Home() {
             <UserList onSelectUser={setSelectedUser} />
           </div>
           <div className="order-2 md:order-none md:col-span-2 mt-4 md:mt-0">
-            {selectedUser ? (
-              <PredictionTable user={selectedUser} />
-            ) : (
-              <div className="bg-white rounded-lg shadow p-4 text-center text-gray-500">
-                Lütfen bir kullanıcı seçin
-              </div>
-            )}
+            <div>
+              {selectedUser ? (
+                <PredictionTable user={selectedUser} />
+              ) : (
+                <div className="bg-white rounded-lg shadow p-4 text-center text-gray-500">
+                  Lütfen bir kullanıcı seçin
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
