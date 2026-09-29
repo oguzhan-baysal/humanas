@@ -44,10 +44,11 @@ cd frontend
 npm install
 npm run dev
 ```
-- Lokal geliştirme için `frontend/.env` dosyası oluşturun:
+- Lokal geliştirme için `frontend/.env.example` dosyasını `frontend/.env` olarak kopyalayıp `NEXT_PUBLIC_API_URL` değerini girin:
+  ```bash
+  cp .env.example .env
   ```
-  NEXT_PUBLIC_API_URL=https://humanas-backend.onrender.com
-  ```
+  Deploy edilmiş backend adresi: `https://humanas-backend.onrender.com`
 - Vercel deploy için aynı environment variable'ı Vercel panelinden ekleyin.
 
 ## Test
